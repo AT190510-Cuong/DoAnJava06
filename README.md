@@ -8,6 +8,9 @@
 
 >- ✍ students at ACT - [academy of cryptography techniques](https://actvn.edu.vn/).
 
+sơ đồ:
+![image](https://github.com/AT190510-Cuong/DoAnJava06/assets/134201481/9bbd4a9e-274f-4631-96bd-fad639e6a6df)
+
 <br />
 <h1 align="center"> các thành viên trong nhóm:</h1>
 <h1 align="center"> NGUYỄN HÙNG CƯỜNG (nhóm trưởng) </h1>
