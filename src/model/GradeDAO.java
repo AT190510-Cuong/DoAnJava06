@@ -27,14 +27,21 @@ public class GradeDAO {
         PreparedStatement sttm = null;
 
         try {
-            String sSQL = "insert into Grade(MaSV, AnhVan, TinHoc, GDTC) \n"
-                    + "values(?,?, ?, ?)";
+            String sSQL = "insert into Grade(MaSV, AnhVan, TinHoc, GDTC, Sinh, Tin, CongNghe, NguVan, DiaLy, LichSu, CongDan) \n"
+                    + "values(?,?, ?, ?,?,?,?,?,?,?,?)";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, g.getSv().getMaSV());
             sttm.setDouble(2, g.getAnhVan());
             sttm.setDouble(3, g.getTinHoc());
             sttm.setDouble(4, g.getGdtc());
+            sttm.setDouble(5, g.getSinh());
+            sttm.setDouble(6, g.getTin());
+            sttm.setDouble(7, g.getCongNghe());
+            sttm.setDouble(8, g.getNguVan());
+            sttm.setDouble(9, g.getDiaLy());
+            sttm.setDouble(10, g.getLichSu());
+            sttm.setDouble(11, g.getCongDan());
 
             if (sttm.executeUpdate() > 0) {
                 System.out.println("Insert thanh cong");
@@ -55,7 +62,7 @@ public class GradeDAO {
         Connection conn = null;
 
         try {
-            String sSQL = "SELECT dbo.Grade.MaSV, dbo.SinhVien.TenSV, dbo.Grade.AnhVan, dbo.Grade.TinHoc, dbo.Grade.GDTC\n"
+            String sSQL = "SELECT dbo.Grade.MaSV, dbo.SinhVien.TenSV, dbo.Grade.AnhVan, dbo.Grade.TinHoc, dbo.Grade.GDTC, dbo.Grade.Sinh, dbo.Grade.Tin, dbo.Grade.CongNghe, dbo.Grade.NguVan, dbo.Grade.DiaLy, dbo.Grade.LichSu, dbo.Grade.CongDan\n"
                     + "FROM   dbo.Grade INNER JOIN\n"
                     + "             dbo.SinhVien ON dbo.Grade.MaSV = dbo.SinhVien.MaSV";
             conn = DatabaseUtils.getDBConnect();
@@ -67,6 +74,14 @@ public class GradeDAO {
                 g.setAnhVan(rs.getDouble(3));
                 g.setTinHoc(rs.getDouble(4));
                 g.setGdtc(rs.getDouble(5));
+                g.setSinh(rs.getDouble(6));
+                g.setTin(rs.getDouble(7));
+                g.setCongNghe(rs.getDouble(8));
+                g.setNguVan(rs.getDouble(9));
+                g.setDiaLy(rs.getDouble(10));
+                g.setLichSu(rs.getDouble(11));
+                g.setCongDan(rs.getDouble(12));
+
                 ls.add(g);
 
             }
@@ -96,7 +111,7 @@ public class GradeDAO {
         PreparedStatement sttm = null;
         // Grade st = new Grade();
         try {
-            String sSQL = "SELECT dbo.Grade.MaSV, dbo.SinhVien.TenSV, dbo.Grade.AnhVan, dbo.Grade.TinHoc, dbo.Grade.GDTC\n"
+            String sSQL = "SELECT dbo.Grade.MaSV, dbo.SinhVien.TenSV, dbo.Grade.AnhVan, dbo.Grade.TinHoc, dbo.Grade.GDTC,  dbo.Grade.Sinh, dbo.Grade.Tin, dbo.Grade.CongNghe, dbo.Grade.NguVan, dbo.Grade.DiaLy, dbo.Grade.LichSu, dbo.Grade.CongDan\n"
                     + "FROM   dbo.Grade INNER JOIN\n"
                     + "             dbo.SinhVien ON dbo.Grade.MaSV = dbo.SinhVien.MaSV where Grade.MaSv = ?";
             conn = DatabaseUtils.getDBConnect();
@@ -109,6 +124,13 @@ public class GradeDAO {
                 g.setAnhVan(rs.getDouble(3));
                 g.setTinHoc(rs.getDouble(4));
                 g.setGdtc(rs.getDouble(5));
+                g.setSinh(rs.getDouble(6));
+                g.setTin(rs.getDouble(7));
+                g.setCongNghe(rs.getDouble(8));
+                g.setNguVan(rs.getDouble(9));
+                g.setDiaLy(rs.getDouble(10));
+                g.setLichSu(rs.getDouble(11));
+                g.setCongDan(rs.getDouble(12));
 
                 return g;
 
@@ -143,13 +165,20 @@ public class GradeDAO {
         PreparedStatement sttm = null;
 
         try {
-            String sSQL = "update Grade set AnhVan=?, TinHoc=?, GDTC=? where MaSV=?";
+            String sSQL = "update Grade set AnhVan=?, TinHoc=?, GDTC=? , Sinh=?, Tin=?, CongNghe=?, NguVan=?, DiaLy=?, LichSu=?, CongDan=? where MaSV=?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setString(4, g.getSv().getMaSV());
+            sttm.setString(11, g.getSv().getMaSV());
             sttm.setDouble(1, g.getAnhVan());
             sttm.setDouble(2, g.getTinHoc());
             sttm.setDouble(3, g.getGdtc());
+            sttm.setDouble(4, g.getSinh());
+            sttm.setDouble(5, g.getTin());
+            sttm.setDouble(6, g.getCongNghe());
+            sttm.setDouble(7, g.getNguVan());
+            sttm.setDouble(8, g.getDiaLy());
+            sttm.setDouble(9, g.getLichSu());
+            sttm.setDouble(10, g.getCongDan());
 
             if (sttm.executeUpdate() > 0) {
                 System.out.println("Update thanh cong");
