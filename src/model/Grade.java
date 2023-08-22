@@ -13,16 +13,33 @@ public class Grade {
     private int id;
     private SinhVien sv;
     private double anhVan, tinHoc, gdtc;
+//    private double toan;
+//    private double ly;
+//    private double hoa;
+    private double sinh;
+    private double tin;
+    private double congNghe;
+    private double nguVan;
+    private double diaLy;
+    private double lichSu;
+    private double congDan;
 
     public Grade() {
     }
 
-    public Grade(int id, SinhVien sv, double anhVan, double tinHoc, double gdtc) {
+    public Grade(int id, SinhVien sv, double anhVan, double tinHoc, double gdtc, double sinh, double tin, double congNghe, double nguVan, double diaLy, double lichSu, double congDan) {
         this.id = id;
         this.sv = sv;
         this.anhVan = anhVan;
         this.tinHoc = tinHoc;
         this.gdtc = gdtc;
+        this.sinh = sinh;
+        this.tin = tin;
+        this.congNghe = congNghe;
+        this.nguVan = nguVan;
+        this.diaLy = diaLy;
+        this.lichSu = lichSu;
+        this.congDan = congDan;
     }
 
     public int getId() {
@@ -65,17 +82,73 @@ public class Grade {
         this.gdtc = gdtc;
     }
 
+    public double getSinh() {
+        return sinh;
+    }
+
+    public void setSinh(double sinh) {
+        this.sinh = sinh;
+    }
+
+    public double getTin() {
+        return tin;
+    }
+
+    public void setTin(double tin) {
+        this.tin = tin;
+    }
+
+    public double getCongNghe() {
+        return congNghe;
+    }
+
+    public void setCongNghe(double congNghe) {
+        this.congNghe = congNghe;
+    }
+
+    public double getNguVan() {
+        return nguVan;
+    }
+
+    public void setNguVan(double nguVan) {
+        this.nguVan = nguVan;
+    }
+
+    public double getDiaLy() {
+        return diaLy;
+    }
+
+    public void setDiaLy(double diaLy) {
+        this.diaLy = diaLy;
+    }
+
+    public double getLichSu() {
+        return lichSu;
+    }
+
+    public void setLichSu(double lichSu) {
+        this.lichSu = lichSu;
+    }
+
+    public double getCongDan() {
+        return congDan;
+    }
+
+    public void setCongDan(double congDan) {
+        this.congDan = congDan;
+    }
+
     public double getTBC() {
-        return (getAnhVan() + getGdtc() + getTinHoc()) / 3;
+        return (getAnhVan() + getGdtc() + getTinHoc() + getSinh() + getTin() + getCongNghe() + getNguVan() + getDiaLy() + getLichSu() + getCongDan()) / 10;
     }
 
     public String getXepLoai() {
         String xl = "";
         double tbc = getTBC();
-        if (tbc > 8) {
+        if (tbc >= 8) {
             xl = "GIOI";
-        } else if (tbc >= 7) {
-            xl = "KHA";
+        } else if (tbc >= 6.5) {
+            xl = "TIEN TIEN";
         } else if (tbc >= 5) {
             xl = "TRUNG BINH";
         } else {

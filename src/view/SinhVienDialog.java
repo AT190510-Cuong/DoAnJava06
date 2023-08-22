@@ -126,7 +126,7 @@ public class SinhVienDialog extends javax.swing.JDialog {
         jLabel5.setText("NGÀY SINH:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("ĐỊA CHỈ");
+        jLabel6.setText("QUÊ QUÁN:");
 
         buttonGroup1.add(rdNam);
         rdNam.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -194,7 +194,7 @@ public class SinhVienDialog extends javax.swing.JDialog {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Ma SV", "Ten SV", "Ngay Sinh", "Gioi Tinh", "Dia Chi", "Hinh Anh"
+                "Ma SV", "Ten SV", "Ngay Sinh", "Gioi Tinh", "Que Quan", "Hinh Anh"
             }
         ));
         tbSinhVien.setRowHeight(25);
