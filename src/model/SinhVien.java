@@ -11,12 +11,14 @@ import java.util.Date;
  * @author HP
  */
 public class SinhVien {
+
     private String maSV;
     private String TenSV;
     private Date ngaySinh;
     private boolean gioiTinh;
     private String diaChi;
     private String hinhAnh;
+    private String lop;
 
     public SinhVien() {
     }
@@ -25,8 +27,6 @@ public class SinhVien {
         this.maSV = maSV;
         this.TenSV = TenSV;
     }
-    
-    
 
     public SinhVien(String maSV, String TenSV, Date ngaySinh, boolean gioiTinh, String diaChi, String hinhAnh) {
         this.maSV = maSV;
@@ -35,6 +35,16 @@ public class SinhVien {
         this.gioiTinh = gioiTinh;
         this.diaChi = diaChi;
         this.hinhAnh = hinhAnh;
+    }
+
+    public SinhVien(String maSV, String TenSV, Date ngaySinh, boolean gioiTinh, String diaChi, String hinhAnh, String lop) {
+        this.maSV = maSV;
+        this.TenSV = TenSV;
+        this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
+        this.diaChi = diaChi;
+        this.hinhAnh = hinhAnh;
+        this.lop = lop;
     }
 
     public String getMaSV() {
@@ -85,12 +95,17 @@ public class SinhVien {
         this.hinhAnh = hinhAnh;
     }
 
+    public String getLop() {
+        return lop;
+    }
+
+    public void setLop(String lop) {
+        this.lop = lop;
+    }
+
     @Override
     public String toString() {
-        return "SinhVien{" + "maSV=" + maSV + ", TenSV=" + TenSV + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", hinhAnh=" + hinhAnh + '}';
+        return "SinhVien{" + "maSV=" + maSV + ", TenSV=" + TenSV + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", hinhAnh=" + hinhAnh + ", lop=" + lop + '}';
     }
-    
-    
-    
-    
+
 }
