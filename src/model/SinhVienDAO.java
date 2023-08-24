@@ -41,8 +41,8 @@ public class SinhVienDAO {
         PreparedStatement sttm = null;
 
         try {
-            String sSQL = "insert into SinhVien(MaSV, TenSV, NgaySinh, GioiTinh,DiaChi, HinhAnh) \n"
-                    + "values(?,?, ?, ?, ?, ?)";
+            String sSQL = "insert into SinhVien(MaSV, TenSV, NgaySinh, GioiTinh,DiaChi, HinhAnh, Lop) \n"
+                    + "values(?,?, ?, ?, ?, ?,?)";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, sv.getMaSV());
@@ -51,6 +51,7 @@ public class SinhVienDAO {
             sttm.setBoolean(4, sv.isGioiTinh());
             sttm.setString(5, sv.getDiaChi());
             sttm.setString(6, sv.getHinhAnh());
+            sttm.setString(7, sv.getLop());
             if (sttm.executeUpdate() > 0) {
                 System.out.println("Insert thanh cong");
                 return 1;
@@ -70,15 +71,16 @@ public class SinhVienDAO {
         PreparedStatement sttm = null;
 
         try {
-            String sSQL = "update SinhVien set TenSV=?, NgaySinh=?, GioiTinh=?, DiaChi=?, HinhAnh=? where MaSV=?";
+            String sSQL = "update SinhVien set TenSV=?, NgaySinh=?, GioiTinh=?, DiaChi=?, HinhAnh=?, Lop=? where MaSV=?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
-            sttm.setString(6, sv.getMaSV());
+            sttm.setString(7, sv.getMaSV());
             sttm.setString(1, sv.getTenSV());
             sttm.setString(2, format_date.format(sv.getNgaySinh()));
             sttm.setBoolean(3, sv.isGioiTinh());
             sttm.setString(4, sv.getDiaChi());
             sttm.setString(5, sv.getHinhAnh());
+            sttm.setString(6, sv.getLop());
             if (sttm.executeUpdate() > 0) {
                 System.out.println("Update thanh cong");
                 return 1;
@@ -111,6 +113,7 @@ public class SinhVienDAO {
                 st.setGioiTinh(rs.getBoolean(4));
                 st.setDiaChi(rs.getString(5));
                 st.setHinhAnh(rs.getString(6));
+                st.setLop(rs.getString(7));
 
                 ls.add(st);
 
@@ -182,6 +185,7 @@ public class SinhVienDAO {
                 st.setGioiTinh(rs.getBoolean(4));
                 st.setDiaChi(rs.getString(5));
                 st.setHinhAnh(rs.getString(6));
+                st.setLop(rs.getString(7));
                 return st;
 
             }
