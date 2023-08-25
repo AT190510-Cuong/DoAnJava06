@@ -19,10 +19,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import model.SinhVien;
 import model.SinhVienDAO;
+import validator.Validator;
 
 /**
  *
@@ -488,15 +490,41 @@ public class SinhVienDialog extends javax.swing.JDialog {
 
     }
 
+//    public boolean validateForm() {
+//        if (txtMaSV.getText().isEmpty()
+//                || txtTenSV.getText().isEmpty()
+//                || txtNgaySinh.getText().isEmpty()
+//                || lblHinhAnh.getText().equalsIgnoreCase("hình ảnh")) {
+//            return false;
+//        }
+//        return true;
+//    }
     public boolean validateForm() {
-        if (txtMaSV.getText().isEmpty()
-                || txtTenSV.getText().isEmpty()
-                || txtNgaySinh.getText().isEmpty()
+        StringBuilder sb = new StringBuilder();
+        JTextField txtID;
+        Validator.isEmpty(txtMaSV, sb, "Ma sinh vien khong duoc rong");
+        Validator.isEmpty(txtTenSV, sb, "Ten sinh vien khong duoc rong");
+        // Validator.isNumberMinMax(txtAge, sb, "Tuoi sinh vien tu 18->35 phai la so nguyen", 18, 35, 0);
+
+        if (!rdNam.isSelected() && !rdNu.isSelected()) {
+            sb.append("Ban chua chon gioi tinh\n");
+        }
+
+        if (txtDiaChi.getText().isEmpty()) {
+            sb.append("Ban chua nhap dia chi\n");
+        }
+//        if (txtNgaySinh.getText().isEmpty()
+//                || lblHinhAnh.getText().equalsIgnoreCase("hình ảnh")) {
+//            return false;
+//        }
+        if (sb.length() > 0 || txtNgaySinh.getText().isEmpty()
                 || lblHinhAnh.getText().equalsIgnoreCase("hình ảnh")) {
+            JOptionPane.showMessageDialog(this, sb.toString());
             return false;
         }
         return true;
     }
+
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         // TODO add your handling code here:
         if (validateForm()) {
