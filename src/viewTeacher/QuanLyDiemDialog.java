@@ -11,6 +11,7 @@ import model.Grade;
 import model.GradeDAO;
 import model.SinhVien;
 import model.SinhVienDAO;
+import validator.Validator;
 
 /**
  *
@@ -589,18 +590,39 @@ public class QuanLyDiemDialog extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnThemActionPerformed
 
+//    public boolean validateForm() {
+//        if (txtMaSV.getText().isEmpty() || txtTenSV.getText().isEmpty() || txtTOAN.getText().isEmpty() || txtLY.getText().isEmpty() || txtHOA.getText().isEmpty()) {
+//            return false;
+//        } else {
+//            try {
+//                double av = Double.parseDouble(txtTOAN.getText());
+//                if (av < 0 || av > 10) {
+//                    return false;
+//                }
+//            } catch (Exception e) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
     public boolean validateForm() {
-        if (txtMaSV.getText().isEmpty() || txtTenSV.getText().isEmpty() || txtTOAN.getText().isEmpty() || txtLY.getText().isEmpty() || txtHOA.getText().isEmpty()) {
+        StringBuilder sb = new StringBuilder();
+        Validator.isEmpty(txtTOAN, sb, "Ma sinh vien khong duoc rong");
+
+        Validator.isNumberMinMax(txtTOAN, sb, "Điểm TOÁN của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtLY, sb, "Điểm LÝ của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtHOA, sb, "Điểm HÓA của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtSINH, sb, "Điểm SINH của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtTIN, sb, "Điểm TIN của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtCONGNGHE, sb, "Điểm CÔNG NGHỆ của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtNGUVAN, sb, "Điểm NGỮ VĂN của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtDIALY, sb, "Điểm ĐỊA LÝ của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtLICHSU, sb, "Điểm LỊCH SỬ của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+        Validator.isNumberMinMax(txtCONGDAN, sb, "Điểm CÔNG DÂN của học sinh không từ 0.0 -> 10.0", 0, 10, 1);
+
+        if (sb.length() > 0) {
+            JOptionPane.showMessageDialog(this, sb.toString());
             return false;
-        } else {
-            try {
-                double av = Double.parseDouble(txtTOAN.getText());
-                if (av < 0 || av > 10) {
-                    return false;
-                }
-            } catch (Exception e) {
-                return false;
-            }
         }
         return true;
     }
@@ -636,9 +658,10 @@ public class QuanLyDiemDialog extends javax.swing.JDialog {
 
             }
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Xin vui lòng kiểm tra thông tin");
-        }
+        } 
+//        else {
+//            JOptionPane.showMessageDialog(this, "Xin vui lòng kiểm tra thông tin");
+//        }
     }//GEN-LAST:event_btnLuuActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed

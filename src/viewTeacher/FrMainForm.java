@@ -6,6 +6,9 @@ package viewTeacher;
 
 import file.FileCSV;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -92,6 +95,11 @@ public class FrMainForm extends javax.swing.JFrame {
         jButton5.setFocusable(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton5);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Print preview.png"))); // NOI18N
@@ -219,7 +227,13 @@ public class FrMainForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        //  this.dispose();
+        int luaChon = JOptionPane.showConfirmDialog(this, "Bạn có chắc chắn muốn thoát ra khỏi chương trình ?", "Exit",
+                JOptionPane.YES_NO_OPTION);
+
+        if (luaChon == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void thucHienSaveFile() {
@@ -250,6 +264,14 @@ public class FrMainForm extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(this, "Chưa nhập tên file");
         }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        // TODO add your handling code here:
+        ChatTeacher sv = new ChatTeacher();
+        sv.setVisible(true);
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
