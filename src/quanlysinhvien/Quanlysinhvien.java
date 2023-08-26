@@ -15,7 +15,10 @@ public class Quanlysinhvien {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("123");
+        System.out.println("THANH VIEN TRONG NHOM:");
+        System.out.println("NGUYEN HUNG CUONG(nhom truong)");
+        System.out.println("MAI THANH NGA");
+        System.out.println("NGUYEN VAN HUNG");
     }
     
 }
