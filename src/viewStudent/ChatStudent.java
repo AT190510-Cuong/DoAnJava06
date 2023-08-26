@@ -4,11 +4,21 @@
  */
 package viewStudent;
 
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.UIManager;
+import viewTeacher.ChatTeacher;
 
 /**
  *
@@ -117,10 +127,37 @@ public class ChatStudent extends javax.swing.JFrame implements Runnable {
         try {
             output = new DataOutputStream(socket.getOutputStream());
             output.writeUTF(txtChat.getText());
-             model.addElement("Student say: " + txtChat.getText());
+            model.addElement("Student say: " + txtChat.getText());
             output.flush();
 
         } catch (Exception e) {
+        }
+        //txtChat.setText("");
+
+        try {
+            File file = new File("D:\\NetBeans-17\\input.txt");
+            // PrintWriter pw;
+            FileOutputStream fos = new FileOutputStream(file, true);
+            OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+            BufferedWriter pw = new BufferedWriter(osw);
+
+            // pw = new PrintWriter(chat.getFileName(), "UTF-8");
+            //  pw = new PrintWriter("D:\\NetBeans-17\\input.txt", "UTF-8");
+            String data = "Student say: " + txtChat.getText();
+            try {
+                //  pw.println(data);
+                pw.append(data);
+                pw.newLine();
+                pw.flush();
+                pw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ChatTeacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //  pw.flush();
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         }
         txtChat.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
