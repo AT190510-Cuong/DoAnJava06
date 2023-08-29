@@ -7,6 +7,7 @@ package viewTeacher;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import model.UserDAO;
+import util.MaHoa;
 import viewStudent.FrMainFormStudent;
 
 /**
@@ -46,13 +47,16 @@ public class LoginDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("ĐĂNG NHẬP HỆ THỐNG");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Secure.png"))); // NOI18N
 
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("MẬT KHẨU:");
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -82,7 +86,8 @@ public class LoginDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("TÊN ĐĂNG NHẬP:");
 
         txtUserName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -187,6 +192,10 @@ public class LoginDialog extends javax.swing.JDialog {
             String username = txtUserName.getText();
             String pass = new String(txtPassword.getPassword());
             UserDAO dao = new UserDAO();
+            
+          //  username= MaHoa.toMD5(pass);
+            pass = MaHoa.toMD5(pass);
+            
 
             if (dao.checkLogin(username, pass) && dao.getUserByID(username).isRole()) {
                 FrMainForm main = new FrMainForm();
@@ -211,7 +220,9 @@ public class LoginDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        this.dispose();
+        
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed

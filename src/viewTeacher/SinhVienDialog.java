@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -22,6 +23,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
+import model.FirstNameComparator1;
+import model.GradeComparator;
+import model.LastNameComparator;
+import model.MiddleNameComparator;
 import model.SinhVien;
 import model.SinhVienDAO;
 import validator.Validator;
@@ -52,6 +57,25 @@ public class SinhVienDialog extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) tbSinhVien.getModel();
         model.setRowCount(0);
         for (SinhVien sv : dao.getAllSinhVien()) {
+            Object rowData[] = new Object[7];
+            rowData[0] = sv.getMaSV();
+            rowData[1] = sv.getTenSV();
+            rowData[2] = date_format.format(sv.getNgaySinh());
+            rowData[3] = sv.isGioiTinh() ? "NAM" : "NỮ";
+            rowData[4] = sv.getDiaChi();
+            rowData[5] = sv.getHinhAnh();
+            rowData[6] = sv.getLop();
+            dsLop.add(sv.getLop());
+
+            model.addRow(rowData);
+
+        }
+    }
+
+    public void fillDateTABLESapXep(List<SinhVien> ls) {
+        DefaultTableModel model = (DefaultTableModel) tbSinhVien.getModel();
+        model.setRowCount(0);
+        for (SinhVien sv : ls) {
             Object rowData[] = new Object[7];
             rowData[0] = sv.getMaSV();
             rowData[1] = sv.getTenSV();
@@ -104,6 +128,7 @@ public class SinhVienDialog extends javax.swing.JDialog {
         btnTimKiem = new javax.swing.JButton();
         btnSapXep = new javax.swing.JButton();
         btnHuyTim = new javax.swing.JButton();
+        btnSapXep1 = new javax.swing.JButton();
         ComboBoxLop = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -265,6 +290,14 @@ public class SinhVienDialog extends javax.swing.JDialog {
             }
         });
 
+        btnSapXep1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Statistics.png"))); // NOI18N
+        btnSapXep1.setText("HỦY SẮP XẾP");
+        btnSapXep1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSapXep1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -275,12 +308,14 @@ public class SinhVienDialog extends javax.swing.JDialog {
                 .addGap(29, 29, 29)
                 .addComponent(txtFindLop, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnHuyTim, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnSapXep, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addComponent(btnTimKiem)
+                .addGap(18, 18, 18)
+                .addComponent(btnHuyTim)
+                .addGap(18, 18, 18)
+                .addComponent(btnSapXep)
+                .addGap(18, 18, 18)
+                .addComponent(btnSapXep1)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +326,8 @@ public class SinhVienDialog extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(txtFindLop, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSapXep)
-                    .addComponent(btnHuyTim))
+                    .addComponent(btnHuyTim)
+                    .addComponent(btnSapXep1))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -686,7 +722,10 @@ public class SinhVienDialog extends javax.swing.JDialog {
 
     private void btnSapXepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepActionPerformed
         // TODO add your handling code here:
-        fillDateTABLE();
+        List<SinhVien> ls = dao.getAllSinhVien();
+        Collections.sort(ls, new LastNameComparator().thenComparing(new FirstNameComparator1().thenComparing(new MiddleNameComparator())));
+        // fillDataTABLESapXep(ls);
+        fillDateTABLESapXep(ls);
         reset();
     }//GEN-LAST:event_btnSapXepActionPerformed
 
@@ -695,6 +734,12 @@ public class SinhVienDialog extends javax.swing.JDialog {
         reset();
         fillDateTABLE();
     }//GEN-LAST:event_btnHuyTimActionPerformed
+
+    private void btnSapXep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXep1ActionPerformed
+        // TODO add your handling code here:
+        fillDateTABLE();
+        reset();
+    }//GEN-LAST:event_btnSapXep1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -750,6 +795,7 @@ public class SinhVienDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnHuyTim;
     private javax.swing.JButton btnLuu;
     private javax.swing.JButton btnSapXep;
+    private javax.swing.JButton btnSapXep1;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiem;
