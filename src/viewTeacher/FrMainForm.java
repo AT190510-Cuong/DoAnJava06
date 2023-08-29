@@ -60,6 +60,7 @@ public class FrMainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("CHƯƠNG TRÌNH QUẢN LÝ SINH VIÊN");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student-management.png"))); // NOI18N
@@ -102,11 +103,16 @@ public class FrMainForm extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton5);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Print preview.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save as.png"))); // NOI18N
         jButton3.setText("XUẤT FILE CSV");
         jButton3.setFocusable(false);
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton3);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Exit.png"))); // NOI18N
@@ -121,15 +127,19 @@ public class FrMainForm extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton1);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Address book.png"))); // NOI18N
         jMenu1.setText("HỆ THỐNG ");
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Exit.png"))); // NOI18N
         jMenuItem2.setText("THOÁT");
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Home.png"))); // NOI18N
         jMenu2.setText("QUẢN LÝ ");
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Users.png"))); // NOI18N
         jMenuItem3.setText("QUẢN LÝ SINH VIÊN");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +148,7 @@ public class FrMainForm extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Best.png"))); // NOI18N
         jMenuItem4.setText("QUẢN LÝ ĐIỂM");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,9 +159,10 @@ public class FrMainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Print preview.png"))); // NOI18N
         jMenu4.setText("IN");
 
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Print preview.png"))); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save as.png"))); // NOI18N
         jMenuItem7.setText("xuất file csv");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,12 +173,25 @@ public class FrMainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help.png"))); // NOI18N
         jMenu3.setText("TRỢ GIÚP");
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Unknown person.png"))); // NOI18N
         jMenuItem5.setText("TÁC GIẢ");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Task list.png"))); // NOI18N
         jMenuItem6.setText("HƯỚNG DẪN");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem6);
 
         jMenuBar1.add(jMenu3);
@@ -193,7 +218,7 @@ public class FrMainForm extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -272,6 +297,34 @@ public class FrMainForm extends javax.swing.JFrame {
         sv.setVisible(true);
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "NGUYỄN HÙNG CƯỜNG\nMAI THANH NGA\nNGUYỄN VĂN HÙNG");
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Phần mềm quản lí thí sinh 4.0");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FileCSV s = new FileCSV();
+        GradeDAO dDAO = new GradeDAO();
+
+        JFileChooser fc = new JFileChooser();
+        int returnVal = fc.showSaveDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            s.write(dDAO.getAllGrade(), file.getAbsolutePath());
+            JOptionPane.showMessageDialog(this, "Xuất file thành công");
+            // }
+
+//        } else {
+//            JOptionPane.showMessageDialog(this, "Chưa nhập tên file");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
