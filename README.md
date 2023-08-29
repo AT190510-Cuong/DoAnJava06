@@ -17,7 +17,7 @@ sơ đồ:
 <h1 align="center"> NGUYỄN HÙNG CƯỜNG (nhóm trưởng) </h1>
 <h1 align="center"> MAI THANH NGA </h1>
 <h1 align="center"> NGUYỄN VĂN HÙNG</h1>
-<h1 align="center"> TÔ DUY ANH</h1>
+
 
 
 
