@@ -5,6 +5,7 @@
 package viewTeacher;
 
 import file.FileCSV;
+import file.FileJSON;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -44,6 +45,7 @@ public class FrMainForm extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -114,6 +116,18 @@ public class FrMainForm extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton3);
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Price list.png"))); // NOI18N
+        jButton6.setText("XUẤT FILE JSON");
+        jButton6.setFocusable(false);
+        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton6);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Exit.png"))); // NOI18N
         jButton1.setText("THOÁT");
@@ -326,6 +340,25 @@ public class FrMainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        try {
+            // TODO add your handling code here:
+            FileJSON s = new FileJSON();
+            GradeDAO dDAO = new GradeDAO();
+
+//        JFileChooser fc = new JFileChooser();
+//        int returnVal = fc.showSaveDialog(this);
+//  if (returnVal == JFileChooser.APPROVE_OPTION) {
+//  File file = fc.getSelectedFile();
+            s.writeJsonFile(dDAO.getAllGrade());
+
+            JOptionPane.showMessageDialog(this, "Xuất file thành công");
+
+        } catch (IOException ex) {
+            Logger.getLogger(FrMainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -374,6 +407,7 @@ public class FrMainForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
