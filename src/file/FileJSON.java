@@ -33,7 +33,7 @@ public class FileJSON {
         FileWriter fw = null;
 
         try {
-            fw = new FileWriter("D:\\json-server\\db.json");
+            fw = new FileWriter("D:\\NetBeans-17\\quanlysinhvien\\dangnhap\\json-sever\\db.json");
             Gson gson = new Gson();
 
             List<Grade> list = new ArrayList<>();
