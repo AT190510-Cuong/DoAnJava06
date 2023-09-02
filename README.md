@@ -16,7 +16,10 @@
 • Khuyến khích phát triển phần mềm giao diện (GUI)</p>
 
 # Sơ đồ:
-![image](https://github.com/AT190510-Cuong/DoAnJava06/assets/134201481/9bbd4a9e-274f-4631-96bd-fad639e6a6df)
+package model:
+![image](https://github.com/AT190510-Cuong/DoAnJava06/assets/134201481/56a87da8-b06f-4cc7-83a3-2e59277349ad)
+
+
 
 # Chức năng
 <p >
