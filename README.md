@@ -1,5 +1,5 @@
 # DoAnJava06
-# last_course_project
+
 <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoc-Vien-Ky-Thuat-Mat-Ma-ACTVN-1.png" width=80px heught=80px />
 <h1 align="center">Hi 👋, Đây là project cuối khóa của nhóm 7 khóa Java core ACT </h1>
 <p align="center">
@@ -7,12 +7,18 @@
 </p>
 
 
->- ✍ students at ACT - [academy of cryptography techniques](https://actvn.edu.vn/).
+## Đề bài: Xây dựng chương phần mềm quản lý điểm của học sinh THPT, yêu cầu  gồm:
+<p>• Một học sinh THPT sẽ có Họ tên, ngày tháng năm sinh, quê quán.</br>
+• Quản lý điểm của 1 học sinh THPT gồm điểm của 10 môn học: Toán, Vật lý, Hoá học, Sinh học, Tin học, Công nghệ, Ngữ Văn, Địa lý, Lịch sử, Giáo dục công dân.</br>
+• Phần mềm có chức năng sửa thông tin của một học sinh.</br>
+• Phần mềm có thể lọc được học sinh theo lớp, sắp xếp điểm tổng kết theo thứ tự từ cao đến thấp, lọc danh sách học sinh đạt danh hiệu HS tiên tiến (điểm TB >= 6.5), HS giỏi (điểm TB >= 8.0) theo lớp. Lưu ý: tất cả phải sắp xếp theo trật tự Alphabet theo họ tên HS. </br>
+• Sử dụng file để lưu trữ thông tin, khi lọc thông tin như yêu cầu (4) cần lưu ra file riêng. Khuyến khích sử dụng json, excel </br>
+• Khuyến khích phát triển phần mềm giao diện (GUI)</p>
 
-sơ đồ:
+# Sơ đồ:
 ![image](https://github.com/AT190510-Cuong/DoAnJava06/assets/134201481/9bbd4a9e-274f-4631-96bd-fad639e6a6df)
 
-# chức năng
+# Chức năng
 <p >
   <h3> ✍ kết nối MSSQL server, xuất file csv ra excel, xuất file json để tạo fake api cho web frontend lấy data, đọc ghi file txt </h3>
   <h3> ✍ chat tcp socket giữa học sinh và giáo viên </h3>
@@ -21,10 +27,10 @@ sơ đồ:
   <h3> ✍ quản lý điểm của học sinh: CRUD, sắp xếp danh sách theo điểm TB, lọc học sinh giỏi tiên tiến, lọc top 3 điểm </h3>
 </p>
 <br />
-<h1 align="center"> các thành viên trong nhóm:</h1>
-<h1 align="center"> NGUYỄN HÙNG CƯỜNG (nhóm trưởng) </h1>
-<h1 align="center"> MAI THANH NGA </h1>
-<h1 align="center"> NGUYỄN VĂN HÙNG</h1>
+<h2 align="center"> các thành viên trong nhóm:</h1>
+<h3 align="center"> NGUYỄN HÙNG CƯỜNG (nhóm trưởng) </h1>
+<h3 align="center"> MAI THANH NGA </h1>
+<h3 align="center"> NGUYỄN VĂN HÙNG</h1>
 
 
 
