@@ -1,0 +1,4 @@
+Teacher say: thầy chào em
+Student say: em chào thầy 
+Teacher say: em thông báo tình hình học tập của các bạn đi
+Student say: vâng các bạn đúp hết rồi thầy ạ

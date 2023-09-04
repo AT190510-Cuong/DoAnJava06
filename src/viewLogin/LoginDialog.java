@@ -4,6 +4,17 @@
  */
 package viewLogin;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import viewTeacher.*;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -186,17 +197,19 @@ public class LoginDialog extends javax.swing.JDialog {
         }
         return true;
     }
+
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         if (checkValidateForm()) {
             String username = txtUserName.getText();
+            // String id = username;
             String pass = new String(txtPassword.getPassword());
             UserDAO dao = new UserDAO();
-            
-          //  username= MaHoa.toMD5(pass);
+
+            //  username= MaHoa.toMD5(pass);
             pass = MaHoa.toMD5(pass);
-            
 
             if (dao.checkLogin(username, pass) && dao.getUserByID(username).isRole()) {
                 FrMainForm main = new FrMainForm();
@@ -218,12 +231,27 @@ public class LoginDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập tên đăng nhập hoặc mật khẩu ");
         }
 
+        try {
+            File file = new File("D:\\NetBeans-17\\quanlysinhvien\\username.txt");
+            PrintWriter pw;
+            pw = new PrintWriter(new FileWriter(file.getAbsolutePath()));
+            pw.println(txtUserName.getText());
+            pw.flush();
+            pw.close();
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btnLoginActionPerformed
+
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here
         this.dispose();
-        
+
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed

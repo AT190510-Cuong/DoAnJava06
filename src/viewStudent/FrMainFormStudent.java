@@ -175,8 +175,14 @@ public class FrMainFormStudent extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        WatchDialog sv = new WatchDialog(this, true);
-        sv.setVisible(true);
+        WatchDialog sv;
+        try {
+            sv = new WatchDialog(this, true);
+             sv.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(FrMainFormStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

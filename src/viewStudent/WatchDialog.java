@@ -5,7 +5,10 @@
 package viewStudent;
 
 import java.awt.Image;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
@@ -22,6 +25,7 @@ import model.Grade;
 import model.GradeDAO;
 import model.SinhVien;
 import model.SinhVienDAO;
+import viewLogin.LoginDialog;
 import viewTeacher.SinhVienDialog;
 
 /**
@@ -41,11 +45,35 @@ public class WatchDialog extends javax.swing.JDialog {
     /**
      * Creates new form WatchDialog
      */
-    public WatchDialog(java.awt.Frame parent, boolean modal) {
+    public WatchDialog(java.awt.Frame parent, boolean modal) throws FileNotFoundException, IOException {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        SinhVien sv = dao.getSinhVienByID("pd02");
+        //SinhVien sv = dao.getSinhVienByID("pd02");
+        // String id = 
+        //FrMainFormStudent fr = new FrMainFormStudent();
+//        LoginDialog ld = 
+//       String id = ld.getUsername();
+
+        BufferedReader br = null;
+        String username = null;
+        try {
+            br = new BufferedReader(new FileReader("D:\\NetBeans-17\\quanlysinhvien\\username.txt"));
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                username = line;
+            }
+
+        } finally {
+            if (br != null) {
+                br.close();
+            }
+
+        }
+
+        System.out.println(username);
+        SinhVien sv = dao.getSinhVienByID(username);
         setModel(sv);
         Grade g = dDAO.getOneGradeByMaSV(sv.getMaSV());
         setModelGrade(g);

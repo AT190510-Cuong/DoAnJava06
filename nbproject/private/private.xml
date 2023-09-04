@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeans-17/quanlysinhvien/src/file/FileJSON.java</file>
-            <file>file:/D:/NetBeans-17/quanlysinhvien/src/model/Grade.java</file>
-            <file>file:/D:/NetBeans-17/quanlysinhvien/src/viewTeacher/FrMainForm.java</file>
-            <file>file:/D:/NetBeans-17/quanlysinhvien/src/file/GradeWrapper.java</file>
-            <file>file:/D:/NetBeans-17/quanlysinhvien/src/file/FileCSV.java</file>
+            <file>file:/D:/NetBeans-17/quanlysinhvien/src/viewStudent/ChatStudent.java</file>
+            <file>file:/D:/NetBeans-17/quanlysinhvien/src/viewStudent/FrMainFormStudent.java</file>
+            <file>file:/D:/NetBeans-17/quanlysinhvien/src/viewTeacher/ChatTeacher.java</file>
+            <file>file:/D:/NetBeans-17/quanlysinhvien/src/viewStudent/WatchDialog.java</file>
+            <file>file:/D:/NetBeans-17/quanlysinhvien/src/viewLogin/LoginDialog.java</file>
         </group>
     </open-files>
 </project-private>
