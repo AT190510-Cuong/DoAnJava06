@@ -135,7 +135,7 @@ public class ChatStudent extends javax.swing.JFrame implements Runnable {
         //txtChat.setText("");
 
         try {
-            File file = new File("D:\\NetBeans-17\\input.txt");
+            File file = new File("D:\\NetBeans-17\\quanlysinhvien\\input.txt");
             // PrintWriter pw;
             FileOutputStream fos = new FileOutputStream(file, true);
             OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
