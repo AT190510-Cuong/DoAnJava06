@@ -18,6 +18,9 @@
 # Sơ đồ:
 package model:
 ![image](https://github.com/AT190510-Cuong/DoAnJava06/assets/134201481/56a87da8-b06f-4cc7-83a3-2e59277349ad)
+package view:
+![image](https://github.com/AT190510-Cuong/DoAnJava06/assets/134201481/8ad57b5d-9bac-4df9-af87-a8bdc9a3f023)
+
 
 
 
