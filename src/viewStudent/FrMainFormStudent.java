@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import model.GradeDAO;
+import multichatclientinterface.Login;
 
 /**
  *
@@ -42,6 +43,7 @@ public class FrMainFormStudent extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -96,6 +98,18 @@ public class FrMainFormStudent extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton1);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Open letter.png"))); // NOI18N
+        jButton3.setText("Chat multi");
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton3);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Address book.png"))); // NOI18N
         jMenu1.setText("HỆ THỐNG ");
@@ -227,6 +241,12 @@ public class FrMainFormStudent extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "NGUYỄN HÙNG CƯỜNG\nMAI THANH NGA\nNGUYỄN VĂN HÙNG");
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+         Login sv = new Login();
+        sv.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +293,7 @@ public class FrMainFormStudent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
