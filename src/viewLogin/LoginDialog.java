@@ -204,11 +204,10 @@ public class LoginDialog extends javax.swing.JDialog {
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         if (checkValidateForm()) {
             String username = txtUserName.getText();
-            // String id = username;
             String pass = new String(txtPassword.getPassword());
             UserDAO dao = new UserDAO();
 
-            //  username= MaHoa.toMD5(pass);
+           
             pass = MaHoa.toMD5(pass);
 
             if (dao.checkLogin(username, pass) && dao.getUserByID(username).isRole()) {

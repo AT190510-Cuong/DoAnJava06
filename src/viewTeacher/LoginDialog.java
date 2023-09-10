@@ -4,6 +4,13 @@
  */
 package viewTeacher;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import model.UserDAO;
@@ -215,6 +222,19 @@ public class LoginDialog extends javax.swing.JDialog {
 
         } else {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập tên đăng nhập hoặc mật khẩu ");
+        }
+            try {
+            File file = new File("D:\\NetBeans-17\\quanlysinhvien\\username.txt");
+            PrintWriter pw;
+            pw = new PrintWriter(new FileWriter(file.getAbsolutePath()));
+            pw.println(txtUserName.getText());
+            pw.flush();
+            pw.close();
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException ex) {
+            Logger.getLogger(viewLogin.LoginDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnLoginActionPerformed
