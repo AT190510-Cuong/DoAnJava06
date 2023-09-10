@@ -159,7 +159,9 @@ public class Grade {
     }
 
     public String writeCSV() {
-        String str = String.format("%s,%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%s\n", getSv().getMaSV(), getSv().getTenSV(), getAnhVan(), getTin(), getGdtc(), getSinh(), getTin(), getCongNghe(), getNguVan(), getDiaLy(), getLichSu(), getCongDan(), getTBC(), getXepLoai());
+        String str = String.format("%s,%s,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%s\n", getSv().getMaSV(),
+                getSv().getTenSV(), getAnhVan(), getTin(), getGdtc(), getSinh(), getTin(), getCongNghe()
+                , getNguVan(), getDiaLy(), getLichSu(), getCongDan(), getTBC(), getXepLoai());
         return str;
     }
 
