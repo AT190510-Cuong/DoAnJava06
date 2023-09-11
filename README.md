@@ -26,7 +26,8 @@ package view:
 
 # Chức năng
 <p >
-  <h3> ✍ kết nối MSSQL server, xuất file csv ra excel, xuất file json để tạo fake api cho web frontend (link: https://at190510-cuong.github.io/web_diem_hs_api/) lấy data, đọc ghi file txt </h3>
+  <h3> ✍ kết nối MSSQL server, xuất file csv ra excel, xuất file json để tạo fake api cho web frontend (link: 
+    <a href="https://at190510-cuong.github.io/web_diem_hs_api/" target="_blank">https://at190510-cuong.github.io/web_diem_hs_api/</a>) lấy data, đọc ghi file txt </h3>
   <h3> ✍ repo web api tại link: https://github.com/AT190510-Cuong/web_diem_hs_api.git </h3>
   <h3> ✍ chat tcp socket giữa học sinh và giáo viên </h3>
   <h3> ✍ đăng nhập: có mã hóa mật khẩu theo hàm băm MD5, phân quyền tài khoản giáo viên và học sinh</h3>
