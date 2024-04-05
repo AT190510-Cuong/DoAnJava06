@@ -1,5 +1,5 @@
 # DoAnJava06
-
+## các bạn có thể xem video tại link youtube sau: https://youtu.be/m_x9RdA6JOo
 <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoc-Vien-Ky-Thuat-Mat-Ma-ACTVN-1.png" width=80px heught=80px />
 <h1 align="center">Hi 👋, Đây là project cuối khóa của nhóm 7 khóa Java core ACT </h1>
 <p align="center">
